@@ -11,37 +11,14 @@ function mergeSort(array) {
   const sortedRightSide = mergeSort(rightSide);
 
   let sortedArray = [];
-  // leftLoop: for (let i = 0; i < sortedLeftSide.length; i++) {
-  //   const leftValue = sortedLeftSide[i];
-  //   while (sortedRightSide.length >= 1) {
-  //     const rightValue = sortedRightSide.shift();
-  //     if (leftValue < rightValue) {
-  //       sortedArray.push(leftValue);
-  //       sortedRightSide.unshift(rightValue);
-  //       continue leftLoop;
-  //     }
-  //     sortedArray.push(rightValue);
-  //   }
-  //   sortedArray = [...sortedArray, sortedLeftSide[i]];
-  // }
-  // if (sortedRightSide.length > 0)
-  //   sortedArray = [...sortedArray, ...sortedRightSide];
   while (sortedLeftSide.length > 0 && sortedRightSide.length > 0) {
-    const leftValue = sortedLeftSide.shift();
-    const rightValue = sortedRightSide.shift();
+    const leftValue = sortedLeftSide[0];
+    const rightValue = sortedRightSide[0];
 
-    if (leftValue < rightValue) {
-      sortedArray.push(leftValue);
-      sortedRightSide.unshift(rightValue);
-    } else {
-      sortedArray.push(rightValue);
-      sortedLeftSide.unshift(leftValue);
-    }
+    if (leftValue < rightValue) sortedArray.push(sortedLeftSide.shift());
+    else sortedArry.push(sortedRightSide.shift());
   }
-  if (sortedLeftSide.length > 0)
-    sortedArray = [...sortedArray, ...sortedLeftSide];
-  else sortedArray = [...sortedArray, ...sortedRightSide];
-  return sortedArray;
+  return [...sortedArray, ...sortedLeftSide, ...sortedRightSide];
 }
 
 const result = mergeSort(inputArray);
