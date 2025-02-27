@@ -16,7 +16,7 @@ function mergeSort(array) {
     const rightValue = sortedRightSide[0];
 
     if (leftValue < rightValue) sortedArray.push(sortedLeftSide.shift());
-    else sortedArry.push(sortedRightSide.shift());
+    else sortedArray.push(sortedRightSide.shift());
   }
   return [...sortedArray, ...sortedLeftSide, ...sortedRightSide];
 }
